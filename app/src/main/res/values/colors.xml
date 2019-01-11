@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffd102</color>
+    <color name="colorPrimaryDark">#ffd102</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="main">#f0f0f0</color>
+    <color name="main_lower">#ddf0f0f0</color>
+    <color name="translete">#00000000</color>
+    <color name="title_bg">#1ba9aa</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_tran">#90FFFFFF</color>
+    <color name="black_space">#AA999999</color>
+    <color name="black">#000000</color>
+    <color name="content_bg">#f0f0f0</color>
+    <color name="txt_color">#6b899e</color>
+    <color name="txt_9">#999999</color>
+    <color name="txt_3">#333333</color>
+    <color name="txt_6">#666666</color>
+    <color name="txt_c">#cccccc</color>
+    <color name="txt_d">#dddddd</color>
+    <color name="txt_e">#eeeeee</color>
+    <color name="txt_0">#000000</color>
+    <color name="txt_f5">#f5cb1e</color>
+    <color name="txt_red">#ff0000</color>
+    <color name="txt_mian_tab">#11B3B4</color>
+    <color name="txt_top1">#fd7f02</color>
+    <color name="txt_top2">#ffb620</color>
+    <color name="txt_top3">#47c0b5</color>
+    <color name="txt_top4">#02b4c5</color>
+    <color name="txt_top5">#6cbb48</color>
+    <color name="sys_mian">#ffd102</color>
+    <color name="normal" >#eae8e8</color>
+    <color name="press" >#bcb2b2</color>
+    <color name="yellow">#fec010</color>
+    <color name="blue">#FF2A46F5</color>
+    <color name="tutu">#fde802</color>
+    <color name="gray_change">#E2E5EA</color>
+    <color name="black_tv">#272727</color>
+    <color name="exam_bottom_tv">#6C6C6C</color>
+
+    <color name="orange_normal">#eb5635</color><!--F86144-->
+    <color name="orange_pressed">#d64221</color><!--E8503E-->
+
+    <color name="profession_tips">#000000</color>
+    <color name="profession_value">#807F7F</color>
+    <color name="list_divider">#C2C2C2</color>
+    <color name="photopicker_background">#181819</color>
+
+    <color name="item_border_color">#666666</color>
+    <color name="item_default_color">#22EEEEEE</color>
+    <color name="item_pressed_color">#CCCCCC</color>
+    <color name="item_activated_color">#77CEEE</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorBackground">#319bd2</color>
+    <color name="toolblue">#2b95ff</color>
+    <color name="itemtvbg">#FFF9DF</color>
+    <color name="itemtvcolor">#F0A613</color>
+    <color name="itembtnred">#FF5339</color>
+    <color name="hint">#ECEDF1</color>
+    <color name="item_find_child_tv">#454A4D</color>
+    <color name="hint2">#F2F3F4</color>
+    <color name="exit">#FE0000</color>
+    <color name="t_gray">#50C0C0C0</color>
+    <color name="gray">#C0C0C0</color>
+    <color name="d_green">#0CC278</color>
+    <color name="mine_green">#6BD7C0</color>
+    <color name="f_yellow">#FEEF7A</color>
+    <color name="tabs">#FCFCFC</color>
+    <color name="line">#DDDDDD</color>
+    <color name="gray_2">#F8F8F8</color>
+    <color name="task_green">#0BC278</color>
+    <color name="color_70">#707070</color>
+    <color name="line_color">#EEEEEE</color>
+    <color name="blue_tv">#40C8FF</color>
+    <color name="green_sys">#3C8767</color>
+    <color name="orange_tv">#FFCC00</color>
+    <color name="search_sys">#F1F1F1</color>
+    <color name="graytv">#999999</color>
+    <color name="blacktv">#666666</color>
+    <color name="capture">#90000000</color>
+    <color name="swtichbg">#1F2635</color>
+    <color name="gg">#283040</color>
+    <color name="darkbule">#526890</color>
+    <color name="rippelColor">#0099CC</color>
+    <color name="preview_mock">#9a000000</color>
+    <color name="Transparent">#00000000</color>
+
+    <color name="color_f6">#f6f6f6</color>
+
+    <color name="green_pressed">#09B397</color>
+
+    <color name="translucent">#00000000</color>
+    <color name="pointtask_Orange">#F88102</color>
+</resources>

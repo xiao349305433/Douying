@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+    <RelativeLayout
+        android:id="@+id/item_homes_img"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@mipmap/sucai1"
+        >
+        <TextView
+            android:id="@+id/item_homes_tv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="@mipmap/jiaobiao1"
+            android:gravity="bottom|right"
+            android:padding="2dp"
+            android:text="3"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+<TextView
+    android:id="@+id/item_homes_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="电影一"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:textColor="@color/white"
+    />
+</LinearLayout>

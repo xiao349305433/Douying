@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dialog_loginerror_height">185dp</dimen>
+    <dimen name="dialog_loginerror_width">300dp</dimen>
+    <dimen name="dialog_tocamera_height">185dp</dimen>
+    <dimen name="dialog_tocamera_width">300dp</dimen>
+    <dimen name="dialog_share_height">300dp</dimen>
+    <dimen name="dialog_share_width">300dp</dimen>
+    <dimen name="dialog_pay_height">350dp</dimen>
+    <dimen name="dialog_pay_width">300dp</dimen>
+
+
+    <dimen name="actionBarSize">32dip</dimen>
+</resources>

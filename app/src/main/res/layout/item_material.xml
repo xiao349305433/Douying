@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <cn.jzvd.MyJZVideoPlayerStandard
+        android:id="@+id/item_material_video"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        ></cn.jzvd.MyJZVideoPlayerStandard>
+<TextView
+    android:id="@+id/item_material_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:text="暂无介绍"
+    android:layout_marginTop="5dp"
+    />
+</LinearLayout>

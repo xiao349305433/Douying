@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@color/darkbule"
+    >
+    <ImageView
+
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/tongzhi"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/item_fg4_notice_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="系统通知"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/item_fg4_notice_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刚刚"
+                android:textSize="13sp"
+                android:textColor="@color/graytv"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/item_fg4_notice_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有最新版本，升级了体验更佳哦"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

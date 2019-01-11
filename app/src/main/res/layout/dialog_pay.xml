@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_swtichface_shape"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/dialog_pay_close"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:src="@mipmap/icon_close" />
+
+    <TextView
+        android:id="@+id/dialog_pay_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商品名"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <RadioButton
+            android:id="@+id/dialog_pay_price"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/pay_radio_bg"
+            android:text="价格"
+            android:textColor="@color/pointtask_Orange"
+            android:layout_marginRight="10dp"
+            android:button="@null"
+            android:gravity="center"
+            />
+        <RadioButton
+            android:id="@+id/dialog_pay_point"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/pay_radio_bg"
+            android:text="价格"
+            android:textColor="@color/pointtask_Orange"
+            android:layout_marginRight="10dp"
+            android:button="@null"
+            android:gravity="center"
+            />
+
+    </RadioGroup>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/dialog_pay_paylayout"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/icon_zhifubao"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="支付宝" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/icon_weixing"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="微信" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/dialog_pay_alipay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/dialog_pay_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dialog_pay_topay"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/dialog_pay_tv"
+        android:gravity="center"
+        android:text="立即购买"
+        android:textColor="@color/white" />
+
+</LinearLayout>

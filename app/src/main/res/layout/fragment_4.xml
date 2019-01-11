@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/swtichbg">
+    <ImageView
+        android:id="@+id/fg4_img"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/back2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="消息"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/fg4_img"
+        android:layout_marginEnd="23dp"
+        android:src="@mipmap/sixin" />
+
+    <com.luck.indicator.BoxEasyIndicator
+        android:layout_below="@+id/fg4_img"
+        android:id="@+id/fg4_easy_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:indicator_bottom_height="3dp"
+        app:indicator_bottom_line_color="@color/line_color"
+        app:indicator_bottom_line_height="1dp"
+        app:indicator_height="42dp"
+        app:indicator_isBottom_line="true"
+        app:indicator_normal_color="#526890"
+        app:indicator_selected_color="@color/white"
+        app:indicator_textSize="14sp"
+        app:indicator_vertical_line_w="1dp"
+        app:indicator_vertical_line_color="#526890"
+        app:indicator_vertical_line_h="50dp"
+        app:indicator_width="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fg4_vp"
+        android:layout_below="@+id/fg4_easy_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

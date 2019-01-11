@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/item_mine_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/play"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+
+    <!--<cn.jzvd.MyJZVideoPlayerStandard-->
+        <!--android:id="@+id/item_mine_vd"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_below="@+id/lookvideo_relativeLayout"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_marginTop="15dp"></cn.jzvd.MyJZVideoPlayerStandard>-->
+    <TextView
+        android:id="@+id/item_mine_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我有钱有身材，醉卧的人从这里排到了法国，我拿三百一出和你玩你当我空气啊"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+</LinearLayout>

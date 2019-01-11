@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gg">
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        >
+        <example.com.douying.view.BackButton style="@style/BackButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="等待建模"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@mipmap/wait_img"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:text="00:00:30"
+  android:gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="休息一下，观看广告可以减少建模时间哦"
+        android:textColor="@color/graytv"
+        android:layout_gravity="center_horizontal"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+        <douying.example.com.mylibrary.view.SineView
+            android:id="@+id/wait_sineview1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sv_sine_amplitude="20dp"
+            app:sv_sine_animation_time_millis="1000"
+            app:sv_sine_color="@color/yellow"
+            app:sv_sine_fill="false"
+            app:sv_sine_periods_to_show="2.5"
+            app:sv_sine_phase="-1"
+            />
+        <douying.example.com.mylibrary.view.SineView
+            android:id="@+id/wait_sineview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:sv_sine_amplitude="20dp"
+            app:sv_sine_animation_time_millis="1200"
+            app:sv_sine_color="@color/txt_red"
+            app:sv_sine_fill="false"
+            app:sv_sine_periods_to_show="2.5"
+            app:sv_sine_phase="-1"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>

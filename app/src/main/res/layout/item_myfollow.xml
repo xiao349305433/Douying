@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/gg"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/item_myfollow_avatar"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/avatar"
+            android:layout_marginLeft="20dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/item_myfollow_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户一"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:id="@+id/item_myfollow_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="237个作品"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/follw"
+            android:text="已关注"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

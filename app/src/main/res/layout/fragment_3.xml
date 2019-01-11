@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/home"
+    >
+    <ImageView
+        android:id="@+id/fg3_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/back3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="圈子"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+
+<android.support.design.widget.TabLayout
+    android:id="@+id/fg3_tab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/fg3_img"
+    >
+</android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fge3_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fg3_tab"
+        ></android.support.v4.view.ViewPager>
+</RelativeLayout>

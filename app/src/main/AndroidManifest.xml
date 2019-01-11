@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.com.douying">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 开启闪光灯权限 -->
+
+    //极光需要的权限
+    <permission android:name="example.com.douying.permission.JPUSH_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.douying.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ForgetPasswordActivity" />
+        <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.HomeActivity"/>
+        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.MyFollowActivity"/>
+        <activity android:name=".activity.SwtichVideoActivity"/>
+        <activity android:name=".activity.SwtichActorActivity"/>
+        <activity android:name=".activity.CameraActivity"/>
+        <activity android:name=".activitys.HomeActivityS"/>
+        <activity android:name=".activitys.SwtichVideoActivityS"/>
+        <activity android:name=".activitys.SwtichActorActivityS"/>
+        <activity android:name=".activitys.LookVideoActivityS"/>
+        <activity android:name=".activity.MineActivity"/>
+        <activity android:name=".activitys.SettingActivityS"/>
+        <activity android:name=".activity.WaitActivity"/>
+        <activity android:name=".activity.ModelActivity"/>
+        <activity android:name=".activity.FeedBackActivity"/>
+        <activity android:name=".activity.GuideActivity1"/>
+        <activity android:name=".activity.GuideActivity2"/>
+        <activity android:name=".activity.GuideActivity3"/>
+        <activity android:name=".activity.GuideActivity4"/>
+        <activity android:name=".activity.GuideActivity5"/>
+        <activity android:name=".wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:exported="true"
+            />
+        <activity android:name=".wxapi.WXPayEntryActivity"
+            android:label="@string/app_name"
+            android:exported="true"
+            />
+
+        <activity android:name=".activity.MineInfoActivity"/>
+        <activity android:name=".activitys.MaterialActivity"/>
+        <activity android:name=".activitys.AddMaterialActivity"/>
+        <activity android:name=".activitys.SwtichActorActivityS2"/>
+        <activity android:name=".activity.CaptureActivity"/>
+        <activity android:name=".activity.MoreActivity"/>
+        <activity android:name=".activity.CircleInfoActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
+        <activity android:name=".activity.CirclePublishActivity" />
+        <activity android:name=".activity.DragPhotoActivity"
+            android:theme="@style/translucent"
+            />
+        <activity android:name=".activity.PointTaskActivity"/>
+        <activity android:name=".activity.PointRecordActivity"/>
+        <activity android:name=".activity.TicketActivity"/>
+
+        <activity android:name=".activity.SubActivity"/>
+        <activity android:name=".activitys.AddModelActivity"/>
+
+        <activity
+            android:theme="@style/customTheme"
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            />
+
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            />
+
+        <activity android:name=".activity.LevelActivity"/>
+
+
+        <receiver
+            android:name=".receiver.MyReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="example.com.douying" />
+            </intent-filter>
+        </receiver>
+
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gg">
+    <ImageView
+        android:id="@+id/guide1_close"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/menu_close"
+        android:layout_marginLeft="20dp"
+        />
+
+    <douying.example.com.mylibrary.view.RippleBackground
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:rb_radius="32dp"
+        app:rb_rippleAmount="6"
+        app:rb_duration="3000"
+        app:rb_scale="6"
+        app:rb_color="@color/end"
+        >
+
+<ImageView
+    android:id="@+id/guide1_img"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:src="@mipmap/nbofang"
+    android:background="@mipmap/quanqua"
+    android:layout_centerInParent="true"
+    />
+
+    </douying.example.com.mylibrary.view.RippleBackground>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新手引导"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手把手教你如何玩转逗影"
+        android:textColor="@color/graytv"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+</LinearLayout>

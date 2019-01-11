@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/sub_avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/avatar" />
+
+        <TextView
+            android:id="@+id/sub_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="用户一"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/sub_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23分钟前"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/sub_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/sub_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/pointtask_Orange"
+        android:layout_marginLeft="60dp"
+        android:text="查看原帖"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"
+        />
+</LinearLayout>
