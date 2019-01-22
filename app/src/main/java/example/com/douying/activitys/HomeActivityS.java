@@ -122,6 +122,9 @@ public class HomeActivityS extends BaseActivity {
                         editor.putInt("ticket", getUserInfoM.getData().getTicket().split(",").length);
                         editor.putInt("Level",getUserInfoM.getData().getGrade());
                         editor.putInt("Active",getUserInfoM.getData().getActive());
+                        editor.putString("Face",getUserInfoM.getData().getFace());
+                        editor.putInt("Care",getUserInfoM.getData().getCare());
+                        editor.putInt("Favorite",getUserInfoM.getData().getFavorite());
                         editor.apply();
                         BaseData.IsSign = getUserInfoM.getData().getStatus() == 2 ? true : false;
                         setUserInfo();
@@ -143,6 +146,9 @@ public class HomeActivityS extends BaseActivity {
         BaseData.Ticket = mPerferences.getInt("ticket", 0);
         BaseData.Level=mPerferences.getInt("Level",0);
         BaseData.Active=mPerferences.getInt("Active",0);
+        BaseData.Face=mPerferences.getString("Face","");
+        BaseData.Care=mPerferences.getInt("Care",0);
+        BaseData.Favorite=mPerferences.getInt("Favorite",0);
     }
 
     private void setdata() {
@@ -170,8 +176,6 @@ public class HomeActivityS extends BaseActivity {
                     default:
                         break;
                 }
-
-
             }
         });
     }

@@ -150,7 +150,6 @@ public class CustomDialog extends Dialog {
         }
 
 
-
         public CustomDialog build() {
             if (resStyle != -1) {
                 return new CustomDialog(this, resStyle);

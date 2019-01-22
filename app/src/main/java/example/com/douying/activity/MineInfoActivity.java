@@ -62,6 +62,7 @@ public class MineInfoActivity extends BaseActivity {
         ImgLoadUtils.loadCirthumbnail(MineInfoActivity.this, BaseData.Pic, mineinfo_img);
         mineinfo_name.setText(BaseData.Turename);
         mineinfo_title.setText(BaseData.Turename);
+
     }
 
     @Override

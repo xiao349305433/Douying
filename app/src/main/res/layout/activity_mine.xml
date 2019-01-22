@@ -8,44 +8,75 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="90dp"
         android:layout_marginTop="20dp">
 
-
         <example.com.douying.view.BackButton style="@style/BackButton" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="我的"
-            android:textColor="@color/white" />
-
-        <ImageView
-            android:id="@+id/mine_setting"
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="14dp"
-            android:src="@mipmap/shezhi" />
-
-    </RelativeLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/mine_img"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
-            android:src="@mipmap/egao" />
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/egao"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/mine_setting"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14dp"
+            android:src="@mipmap/shezhi" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/mine_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/mine_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:layout_marginRight="10dp"
+            />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/mine_fans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="粉丝"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -53,15 +84,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/mine_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="用户名"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +103,6 @@
                     android:layout_marginLeft="5dp"
                     android:text="武汉 湖北"
                     android:textColor="@color/graytv" />
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

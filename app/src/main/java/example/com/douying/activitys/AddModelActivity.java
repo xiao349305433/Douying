@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +19,8 @@ import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,47 +29,40 @@ import example.com.douying.BaseActivity;
 import example.com.douying.BaseData;
 import example.com.douying.R;
 import example.com.douying.activity.CameraActivity;
+import example.com.douying.activity.CirclePublishActivity;
 import example.com.douying.activity.ModelActivity;
+import example.com.douying.adapter.PhotoAdapter;
+import example.com.douying.adapter.RecyclerItemClickListener;
 import example.com.douying.http.JsonCallback;
 import example.com.douying.http.MainHttp;
 import example.com.douying.model.BaseM;
-import example.com.douying.model.GetModelM2;
+import example.com.douying.model.GetModelM;
+import example.com.douying.model.SectionM;
 import example.com.douying.model.TakeSingleM;
 import example.com.douying.utils.ToastUtil;
+import me.iwf.photopicker.PhotoPicker;
+import me.iwf.photopicker.PhotoPreview;
 import qiu.niorgai.StatusBarCompat;
+import top.zibin.luban.CompressionPredicate;
+import top.zibin.luban.Luban;
+import top.zibin.luban.OnCompressListener;
 
 /**
  * Created by admin on 2019/1/4.
  */
 
 public class AddModelActivity extends BaseActivity {
-    //    @BindView(R.id.model_sure)
-//    TextView model_sure;
     @BindView(R.id.addmodel_sure)
     TextView model_edit;
-    @BindView(R.id.addmodel_img_1)
-    ImageView model_img_1;
-    @BindView(R.id.addmodel_img_2)
-    ImageView model_img_2;
-    @BindView(R.id.addmodel_img_3)
-    ImageView model_img_3;
-    @BindView(R.id.addmodel_close_1)
-    ImageView model_close_1;
-    @BindView(R.id.addmodel_close_2)
-    ImageView model_close_2;
-    @BindView(R.id.addmodel_close_3)
-    ImageView model_close_3;
     @BindView(R.id.addmodel_edit)
     EditText addmodel_edit;
-
-    boolean IsSave1 = false;
-    boolean IsSave2 = false;
-    boolean IsSave3 = false;
-    boolean IsClose1 = false;
-    boolean IsClose2 = false;
-    boolean IsClose3 = false;
+    @BindView(R.id.addmodel_rv)
+    RecyclerView addmodel_rv;
+    private PhotoAdapter photoAdapter;
+    private ArrayList<String> selectedPhotos = new ArrayList<>();
+    private ArrayList<File> lubanPath = new ArrayList<>();
+    GetModelM.DataBean.ListBeanX listBeanX;
     HttpParams httpParamsUp = new HttpParams();
-    GetModelM2.DataBean dataBean;
 
     @Override
     public void afterCreate(Bundle savedInstanceState) {
@@ -75,166 +75,149 @@ public class AddModelActivity extends BaseActivity {
         return R.layout.activity_addmodel;
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data != null) {
-            String path = data.getStringExtra("ImgPath");
-            Bitmap bit = BitmapFactory.decodeFile(path);
-            switch (requestCode) { //resultCode为回传的标记，我在B中回传的是RESULT_OK
-                case 1:
-                    model_img_1.setImageBitmap(bit);
-                    httpParamsUp.put("preview1", new File(path));
-                    model_close_1.setVisibility(View.VISIBLE);
-                    model_img_1.setEnabled(false);
-                    IsSave1 = true;
-                    break;
-                case 2:
-                    model_img_2.setImageBitmap(bit);
-                    httpParamsUp.put("preview2", new File(path));
-                    model_close_2.setVisibility(View.VISIBLE);
-                    model_img_2.setEnabled(false);
-                    IsSave2 = true;
-                    break;
-                case 3:
-                    model_img_3.setImageBitmap(bit);
-                    httpParamsUp.put("preview3", new File(path));
-                    model_close_3.setVisibility(View.VISIBLE);
-                    model_img_3.setEnabled(false);
-                    IsSave3 = true;
-                    break;
-                default:
-                    break;
-            }
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        for (int i = 0; i < lubanPath.size(); i++) {
+            lubanPath.get(i).delete();
         }
-
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data != null) {
+            //获取图片
+            if (resultCode == RESULT_OK && (requestCode == PhotoPicker.REQUEST_CODE || requestCode == PhotoPreview.REQUEST_CODE)) {
+                List<String> photos = null;
+                if (data != null) {
+                    photos = data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
+                }
+                selectedPhotos.clear();
+                if (photos != null) {
+                    selectedPhotos.addAll(photos);
+                }
+                //压缩和添加图片
+                setimgs();
+                photoAdapter.notifyDataSetChanged();
+                //获取视频
+            }
+        }
+    }
 
-    @OnClick({R.id.addmodel_sure, R.id.addmodel_img_1, R.id.addmodel_img_2, R.id.addmodel_img_3, R.id.addmodel_close_1, R.id.addmodel_close_2, R.id.addmodel_close_3})
+    @OnClick({R.id.addmodel_sure})
     public void test(View view) {
         switch (view.getId()) {
             case R.id.addmodel_sure:
-                //   model_rv.setVisibility(View.VISIBLE);
                 updata();
-//                if (model_edit.getText().equals("完成")) {
-//                    model_edit.setText("编辑");
-//                    model_img_1.setEnabled(false);
-//                    model_img_2.setEnabled(false);
-//                    model_img_3.setEnabled(false);
-//                    model_close_1.setVisibility(View.GONE);
-//                    model_close_2.setVisibility(View.GONE);
-//                    model_close_3.setVisibility(View.GONE);
-//                } else {
-//                    model_edit.setText("完成");
-//                    model_img_1.setEnabled(true);
-//                    model_img_2.setEnabled(true);
-//                    model_img_3.setEnabled(true);
-//
-//                    if (IsSave1) {
-//                        model_close_1.setVisibility(View.VISIBLE);
-//                    } else {
-//                        model_close_1.setVisibility(View.GONE);
-//                    }
-//                    if (IsSave2) {
-//                        model_close_2.setVisibility(View.VISIBLE);
-//                    } else {
-//                        model_close_2.setVisibility(View.GONE);
-//                    }
-//                    if (IsSave3) {
-//                        model_close_3.setVisibility(View.VISIBLE);
-//                    } else {
-//                        model_close_3.setVisibility(View.GONE);
-//                    }
-//                }
                 break;
-            case R.id.addmodel_close_1:
-                IsSave1 = false;
-                IsClose1 = true;
-                model_img_1.setImageResource(R.mipmap.tianjiada);
-                model_img_1.setEnabled(true);
-                model_close_1.setVisibility(View.GONE);
-                break;
-            case R.id.addmodel_close_2:
-                IsSave2 = false;
-                IsClose2 = true;
-                model_img_2.setImageResource(R.mipmap.tianjiada);
-                model_img_2.setEnabled(true);
-                model_close_2.setVisibility(View.GONE);
-                break;
-            case R.id.addmodel_close_3:
-                IsSave3 = false;
-                IsClose3 = true;
-                model_img_3.setImageResource(R.mipmap.tianjiada);
-                model_img_3.setEnabled(true);
-                model_close_3.setVisibility(View.GONE);
-                break;
-            case R.id.addmodel_img_1:
-                if (!IsSave1) {
-                    Intent intent = new Intent(this, CameraActivity.class);
-                    intent.putExtra("IsModel", true);
-                    intent.putExtra("direction", 1);
-                    startActivityForResult(intent, 1);
-                }
-                break;
-            case R.id.addmodel_img_2:
-                if (!IsSave2) {
-                    Intent intent = new Intent(this, CameraActivity.class);
-                    intent.putExtra("IsModel", true);
-                    intent.putExtra("direction", 2);
-                    startActivityForResult(intent, 2);
-                }
-                break;
-            case R.id.addmodel_img_3:
-                if (!IsSave3) {
-                    Intent intent = new Intent(this, CameraActivity.class);
-                    intent.putExtra("IsModel", true);
-                    intent.putExtra("direction", 3);
-                    startActivityForResult(intent, 3);
-                }
-                break;
+        }
+    }
 
+    private void inview() {
+        listBeanX = getIntent().getParcelableExtra("ListBeanX");
+        if(listBeanX!=null){
+            addmodel_edit.setText(listBeanX.getTitle());
+            for (int i = 0; i < listBeanX.getList().size(); i++) {
+                selectedPhotos.add(listBeanX.getList().get(i).getUrl());
+            }
+        }
+        photoAdapter = new PhotoAdapter(this, selectedPhotos);
+        addmodel_rv.setLayoutManager(new StaggeredGridLayoutManager(3, OrientationHelper.VERTICAL));
+        addmodel_rv.setAdapter(photoAdapter);
+        addmodel_rv.addOnItemTouchListener(new RecyclerItemClickListener(this,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        if (photoAdapter.getItemViewType(position) == PhotoAdapter.TYPE_ADD && position == 0) {
+                            PhotoPicker.builder()
+                                    .setPhotoCount(6)
+                                    .setShowCamera(true)
+                                    .setPreviewEnabled(false)
+                                    .setSelected(selectedPhotos)
+                                    .start(AddModelActivity.this);
+                        } else if (photoAdapter.getItemViewType(position) == PhotoAdapter.TYPE_ADD && position != 0) {
+                            PhotoPicker.builder()
+                                    .setPhotoCount(6)
+                                    .setShowCamera(true)
+                                    .setPreviewEnabled(false)
+                                    .setSelected(selectedPhotos)
+                                    .start(AddModelActivity.this);
+                        } else {
+                            PhotoPreview.builder()
+                                    .setPhotos(selectedPhotos)
+                                    .setCurrentItem(position)
+                                    .start(AddModelActivity.this);
+                        }
+                    }
+                }));
+    }
+
+    private void setimgs() {
+        String img="";
+        if (selectedPhotos.size() > 1) {
+            for (int i = 0; i < selectedPhotos.size(); i++) {
+                if (selectedPhotos.get(i).contains("/storage/emulated/")) {
+                    luban(selectedPhotos.get(i), i + 1);
+                } else {
+                    img=img+selectedPhotos.get(i)+",";
+                }
+            }
+            if(!img.equals("")){
+                httpParamsUp.put("extra", img.substring(0,img.length()-1));
+            }
+        } else {
+            if (selectedPhotos.size() > 0) {
+                if (selectedPhotos.get(0).contains("/storage/emulated/")) {
+                    luban(selectedPhotos.get(0), 0);
+                } else {
+                    httpParamsUp.put("extra",img+selectedPhotos.get(0) );
+                }
+            }
         }
     }
 
 
-    private void inview() {
-        dataBean = getIntent().getParcelableExtra("DataBean");
-        ImgLoadUtils.loadthumbnail(this, MainHttp.RES_STRING+dataBean.getList().get(0).getUrl(),model_img_1);
-        ImgLoadUtils.loadthumbnail(this, MainHttp.RES_STRING+dataBean.getList().get(1).getUrl(),model_img_2);
-        ImgLoadUtils.loadthumbnail(this, MainHttp.RES_STRING+dataBean.getList().get(2).getUrl(),model_img_3);
-        addmodel_edit.setText(dataBean.getTitle());
-        model_close_1.setVisibility(View.VISIBLE);
-        model_close_2.setVisibility(View.VISIBLE);
-        model_close_3.setVisibility(View.VISIBLE);
+    private void luban(String photo, int arg) {
+        Luban.with(this)
+                .load(photo)
+                .ignoreBy(100)
+                .setTargetDir(outputDir)
+                .filter(new CompressionPredicate() {
+                    @Override
+                    public boolean apply(String path) {
+                        return !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif"));
+                    }
+                })
+                .setCompressListener(new OnCompressListener() {
+                    @Override
+                    public void onStart() {
+                        // TODO 压缩开始前调用，可以在方法内启动 loading UI
+                    }
 
+                    @Override
+                    public void onSuccess(File file) {
+                        lubanPath.add(file);
+                        if (arg == 0) {
+                            httpParamsUp.put("img", file);
+                        } else {
+                            httpParamsUp.put("img" + arg, file);
+                        }
+                        Log.e("Tag", "onSuccess");
+                        // TODO 压缩成功后调用，返回压缩后的图片文件
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // TODO 当压缩过程出现问题时调用
+                    }
+                }).launch();
     }
+
 
     private void updata() {
         httpParamsUp.put("uid", BaseData.Uid);
-        if (IsClose1 && !IsSave1) { //删除
-            httpParamsUp.put("preview1", -1);
-        } else if (IsClose1 && IsSave1) { //更新
-            httpParamsUp.put("preview1", -2);
-        } else {//不变
-
+        if(listBeanX!=null){
+            httpParamsUp.put("pid", listBeanX.getPid());
         }
-
-        if (IsClose2 && !IsSave2) { //删除
-            httpParamsUp.put("preview2", -1);
-        } else if (IsClose2 && IsSave2) { //更新
-            httpParamsUp.put("preview2", -2);
-        } else {//不变
-
-        }
-
-        if (IsClose3 && !IsSave3) { //删除
-            httpParamsUp.put("preview3", -1);
-        } else if (IsClose3 && IsSave3) { //更新
-            httpParamsUp.put("preview3", -2);
-        } else {//不变
-
-        }
-
         if (addmodel_edit.getText() != null) {
             httpParamsUp.put("title", addmodel_edit.getText().toString());
         }
@@ -245,6 +228,10 @@ public class AddModelActivity extends BaseActivity {
                 BaseM baseM = new Gson().fromJson(response.body(), BaseM.class);
                 switch (baseM.getCode()) {
                     case 202:
+                        ToastUtil.show(AddModelActivity.this, baseM.getInfo());
+                        finish();
+                        break;
+                    case 201:
                         ToastUtil.show(AddModelActivity.this, baseM.getInfo());
                         finish();
                         break;

@@ -14,16 +14,16 @@
         <example.com.douying.view.BackButton style="@style/BackButton" />
 
         <TextView
-            android:id="@+id/model_edit"
+            android:id="@+id/model_ADD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:text="编辑"
+            android:text="新增"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_marginRight="10dp"
-            android:visibility="gone"
+            android:visibility="visible"
             />
     </RelativeLayout>
     <LinearLayout

@@ -24,13 +24,14 @@ public class SwtichActorAdapter extends BaseQuickAdapter<PartBean.RoleBean, Base
     @Override
     protected void convert(BaseViewHolder helper, PartBean.RoleBean item) {
         helper.addOnClickListener(R.id.item_swtichactor_img);
+        helper.addOnClickListener(R.id.item_swtichactor_model);
         if(item.isIschoose()){
             helper.getView(R.id.item_swtichactor_img).setBackground(mContext.getResources().getDrawable(R.drawable.item_swtichactor_img_shape_red));
         }else {
             helper.getView(R.id.item_swtichactor_img).setBackground(mContext.getResources().getDrawable(R.drawable.item_swtichactor_img_shape_wihte));
         }
 
-        helper.setText(R.id.item_swtichactor_tv, item.getName());
+     //   helper.setText(R.id.item_swtichactor_tv, item.getName());
         ImgLoadUtils.loadCircularBead(mContext, MainHttp.RES_STRING + item.getUpic(), (ImageView) (helper.getView(R.id.item_swtichactor_img)));
 
     }

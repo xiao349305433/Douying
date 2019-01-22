@@ -14,13 +14,35 @@
         android:padding="2dp"
         android:background="@drawable/item_swtichactor_img_shape_wihte"
         />
-    <TextView
-        android:id="@+id/item_swtichactor_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="演员一"
-        android:textColor="@color/graytv"
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         />
-
+    <!--<TextView-->
+        <!--android:id="@+id/item_swtichactor_tv"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="演员一"-->
+        <!--android:textColor="@color/graytv"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--/>-->
+    <ImageView
+        android:id="@+id/item_swtichactor_model"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/avatar"
+        android:padding="2dp"
+        android:background="@drawable/item_swtichactor_img_shape_wihte"
+        />
+    <!--<TextView-->
+        <!--android:id="@+id/item_swtichactor_model_title"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="演员一"-->
+        <!--android:textColor="@color/graytv"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--/>-->
 </LinearLayout>

@@ -40,7 +40,7 @@
                 android:id="@+id/item_myfollow_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="237个作品"
+                android:text=""
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/white"
                 />

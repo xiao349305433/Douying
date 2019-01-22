@@ -12,6 +12,7 @@ import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
 
 import butterknife.BindView;
+import douying.example.com.mylibrary.view.utils.SpanUtils;
 import example.com.douying.BaseActivity;
 import example.com.douying.BaseData;
 import example.com.douying.R;
@@ -61,7 +62,8 @@ public class LevelActivity extends BaseActivity {
         level_active.setText(BaseData.Active + "");
         level_level.setText("Lv." + BaseData.Level);
         int need = BaseData.Level * (BaseData.Level + 5) * 100;//需要多少活跃值
-        level_need.setText("距离下一等级还需" + (need-BaseData.Active) + "活跃值");
+       // level_need.setText("距离下一等级还需" + (need-BaseData.Active) + "活跃值" );
+        level_need.setText(SpanUtils.getForegroundColorSpan(this,"距离下一等级还需" + (need-BaseData.Active) + "活跃值" ,(need-BaseData.Active)+"" ));
         level_progressBar.setMax(need);
         level_progressBar.setProgress(BaseData.Active);
     }

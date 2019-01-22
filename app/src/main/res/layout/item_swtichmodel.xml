@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_swtichmodel_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/item_swtichactor_img_shape_wihte"
+        android:padding="2dp"
+        android:src="@mipmap/avatar" />
+
+    <TextView
+        android:id="@+id/item_swtichmodel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="演员一"
+        android:textColor="@color/graytv" />
+</LinearLayout>

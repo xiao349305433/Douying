@@ -47,9 +47,6 @@ public class MyApplication extends SuperApplication {
         Utils.init(this);
 //        ZXingLibrary.initDisplayOpinion(this);
      //   inRouter();
-
-
-
         //极光
         setJPush();
         //音乐播放service

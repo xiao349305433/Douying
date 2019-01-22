@@ -18,5 +18,6 @@
     android:layout_marginLeft="20dp"
     android:text="暂无介绍"
     android:layout_marginTop="5dp"
+    android:textColor="@color/white"
     />
 </LinearLayout>

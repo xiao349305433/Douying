@@ -18,4 +18,7 @@ public class BaseData {
     public static boolean IsSign=false; //签到
     public static int Level; //等级
     public static int Active; //活跃值
+    public static String Face;//
+    public static int Care;//关注数
+    public static int Favorite;//粉丝数
 }

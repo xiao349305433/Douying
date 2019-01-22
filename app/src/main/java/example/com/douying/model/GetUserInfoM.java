@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by admin on 2018/12/21.
+ * Created by admin on 2019/1/17.
  */
 
 public class GetUserInfoM {
 
     /**
      * code : 200
-     * data : {"id":"27","name":"15907170807","pic":"https://xch.lxx673.shop/Uploads/20181221/5c1c4ccce49ea.jpg","truename":"DY20180914","logintime":"1536912091","face":"{\"list\": [{\"id\": 1, \"url\": \"https://xch.lxx673.shop/Uploads/20181018/5bc83ade91205.jpg\", \"title\": \"模型1-左侧面\"}, {\"id\": 2, \"url\": \"https://xch.lxx673.shop/Uploads/20181018/5bc83ade92cbe.jpg\", \"title\": \"模型2-正面\"}, {\"id\": 3, \"url\": \"https://xch.lxx673.shop/Uploads/20181018/5bc83ade942ba.jpg\", \"title\": \"模型3-右侧面\"}]}","weikey":null,"is_vip":"2","order_time":null,"credits":"0","address":"武汉市","count":"0","weipic":null,"weiname":null,"attention":"","location":null,"privilege":"2","money":"0.00","favorite":"0","token":"3215sdf13ad1f65asd4f3ads1f","status":"2","favorite_id":null,"device":"android","ticket":""}
+     * data : {"id":"27","name":"15907170807","pic":"https://xch.lxx673.shop/Uploads/20181221/5c1c4ccce49ea.jpg","truename":"Bleach","logintime":"1536912091","face":"{\"model\": [{\"pid\": 1, \"list\": [{\"url\": \"20190115/5c3d59d33600c.jpeg\"}, {\"url\": \"20190115/5c3d59d3363c8.jpeg\"}, {\"url\": \"20190115/5c3d7bd358f94.jpeg\"}], \"title\": \"第二天\", \"is_default\": 2}, {\"pid\": 2, \"list\": [{\"url\": \"20190115/5c3d7cff97d65.jpeg\"}, {\"url\": \"20190115/5c3d7cff98464.jpeg\"}, {\"url\": \"20190115/5c3d7cff98c34.jpg\"}, {\"url\": \"20190115/5c3d7cff990f6.jpg\"}, {\"url\": \"20190115/5c3d7cff9953c.jpg\"}, {\"url\": \"20190115/5c3d7cff99afa.jpg\"}], \"title\": \"润之\", \"is_default\": 1}]}","address":"武汉市","location":null,"count":"0","weikey":null,"weipic":null,"weiname":null,"privilege":"2","ticket":"10,9,9,9,10","credits":"9998399","money":"0.00","active":"0","grade":"1","attention":"26","care":"1","favorite_id":"26,47","favorite":"2","token":"1104a8979282f0fe7fe","status":"1","device":"android"}
      * info : 请求成功
      * status : 2
      */
@@ -58,27 +58,28 @@ public class GetUserInfoM {
          * id : 27
          * name : 15907170807
          * pic : https://xch.lxx673.shop/Uploads/20181221/5c1c4ccce49ea.jpg
-         * truename : DY20180914
+         * truename : Bleach
          * logintime : 1536912091
-         * face : {"list": [{"id": 1, "url": "https://xch.lxx673.shop/Uploads/20181018/5bc83ade91205.jpg", "title": "模型1-左侧面"}, {"id": 2, "url": "https://xch.lxx673.shop/Uploads/20181018/5bc83ade92cbe.jpg", "title": "模型2-正面"}, {"id": 3, "url": "https://xch.lxx673.shop/Uploads/20181018/5bc83ade942ba.jpg", "title": "模型3-右侧面"}]}
-         * weikey : null
-         * is_vip : 2
-         * order_time : null
-         * credits : 0
+         * face : {"model": [{"pid": 1, "list": [{"url": "20190115/5c3d59d33600c.jpeg"}, {"url": "20190115/5c3d59d3363c8.jpeg"}, {"url": "20190115/5c3d7bd358f94.jpeg"}], "title": "第二天", "is_default": 2}, {"pid": 2, "list": [{"url": "20190115/5c3d7cff97d65.jpeg"}, {"url": "20190115/5c3d7cff98464.jpeg"}, {"url": "20190115/5c3d7cff98c34.jpg"}, {"url": "20190115/5c3d7cff990f6.jpg"}, {"url": "20190115/5c3d7cff9953c.jpg"}, {"url": "20190115/5c3d7cff99afa.jpg"}], "title": "润之", "is_default": 1}]}
          * address : 武汉市
+         * location : null
          * count : 0
+         * weikey : null
          * weipic : null
          * weiname : null
-         * attention :
-         * location : null
          * privilege : 2
+         * ticket : 10,9,9,9,10
+         * credits : 9998399
          * money : 0.00
-         * favorite : 0
-         * token : 3215sdf13ad1f65asd4f3ads1f
-         * status : 2
-         * favorite_id : null
+         * active : 0
+         * grade : 1
+         * attention : 26
+         * care : 1
+         * favorite_id : 26,47
+         * favorite : 2
+         * token : 1104a8979282f0fe7fe
+         * status : 1
          * device : android
-         * ticket :
          */
 
         private String id;
@@ -87,52 +88,25 @@ public class GetUserInfoM {
         private String truename;
         private String logintime;
         private String face;
-        private String weikey;
-        private String is_vip;
-        private String order_time;
-        private int credits;
         private String address;
+        private String location;
         private String count;
+        private String weikey;
         private String weipic;
         private String weiname;
-        private String attention;
-        private String location;
         private String privilege;
+        private String ticket;
+        private int credits;
         private String money;
-        private String favorite;
+        private int active;
+        private int grade;
+        private String attention;
+        private int care;
+        private String favorite_id;
+        private int favorite;
         private String token;
         private int status;
-        private String favorite_id;
         private String device;
-        private String ticket;
-        private int grade;
-        private int active;
-        private int care;
-
-        public int getActive() {
-            return active;
-        }
-
-        public void setActive(int active) {
-            this.active = active;
-        }
-
-        public int getCare() {
-            return care;
-        }
-
-        public void setCare(int care) {
-            this.care = care;
-        }
-
-        public int getGrade() {
-
-            return grade;
-        }
-
-        public void setGrade(int grade) {
-            this.grade = grade;
-        }
 
         public String getId() {
             return id;
@@ -182,38 +156,6 @@ public class GetUserInfoM {
             this.face = face;
         }
 
-        public String getWeikey() {
-            return weikey;
-        }
-
-        public void setWeikey(String weikey) {
-            this.weikey = weikey;
-        }
-
-        public String getIs_vip() {
-            return is_vip;
-        }
-
-        public void setIs_vip(String is_vip) {
-            this.is_vip = is_vip;
-        }
-
-        public String getOrder_time() {
-            return order_time;
-        }
-
-        public void setOrder_time(String order_time) {
-            this.order_time = order_time;
-        }
-
-        public int getCredits() {
-            return credits;
-        }
-
-        public void setCredits(int credits) {
-            this.credits = credits;
-        }
-
         public String getAddress() {
             return address;
         }
@@ -222,12 +164,28 @@ public class GetUserInfoM {
             this.address = address;
         }
 
+        public String getLocation() {
+            return location;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
+
         public String getCount() {
             return count;
         }
 
         public void setCount(String count) {
             this.count = count;
+        }
+
+        public String getWeikey() {
+            return weikey;
+        }
+
+        public void setWeikey(String weikey) {
+            this.weikey = weikey;
         }
 
         public String getWeipic() {
@@ -246,28 +204,28 @@ public class GetUserInfoM {
             this.weiname = weiname;
         }
 
-        public String getAttention() {
-            return attention;
-        }
-
-        public void setAttention(String attention) {
-            this.attention = attention;
-        }
-
-        public String getLocation() {
-            return location;
-        }
-
-        public void setLocation(String location) {
-            this.location = location;
-        }
-
         public String getPrivilege() {
             return privilege;
         }
 
         public void setPrivilege(String privilege) {
             this.privilege = privilege;
+        }
+
+        public String getTicket() {
+            return ticket;
+        }
+
+        public void setTicket(String ticket) {
+            this.ticket = ticket;
+        }
+
+        public int getCredits() {
+            return credits;
+        }
+
+        public void setCredits(int credits) {
+            this.credits = credits;
         }
 
         public String getMoney() {
@@ -278,11 +236,51 @@ public class GetUserInfoM {
             this.money = money;
         }
 
-        public String getFavorite() {
+        public int getActive() {
+            return active;
+        }
+
+        public void setActive(int active) {
+            this.active = active;
+        }
+
+        public int getGrade() {
+            return grade;
+        }
+
+        public void setGrade(int grade) {
+            this.grade = grade;
+        }
+
+        public String getAttention() {
+            return attention;
+        }
+
+        public void setAttention(String attention) {
+            this.attention = attention;
+        }
+
+        public int getCare() {
+            return care;
+        }
+
+        public void setCare(int care) {
+            this.care = care;
+        }
+
+        public String getFavorite_id() {
+            return favorite_id;
+        }
+
+        public void setFavorite_id(String favorite_id) {
+            this.favorite_id = favorite_id;
+        }
+
+        public int getFavorite() {
             return favorite;
         }
 
-        public void setFavorite(String favorite) {
+        public void setFavorite(int favorite) {
             this.favorite = favorite;
         }
 
@@ -302,28 +300,12 @@ public class GetUserInfoM {
             this.status = status;
         }
 
-        public String getFavorite_id() {
-            return favorite_id;
-        }
-
-        public void setFavorite_id(String favorite_id) {
-            this.favorite_id = favorite_id;
-        }
-
         public String getDevice() {
             return device;
         }
 
         public void setDevice(String device) {
             this.device = device;
-        }
-
-        public String getTicket() {
-            return ticket;
-        }
-
-        public void setTicket(String ticket) {
-            this.ticket = ticket;
         }
 
         @Override
@@ -339,25 +321,25 @@ public class GetUserInfoM {
             dest.writeString(this.truename);
             dest.writeString(this.logintime);
             dest.writeString(this.face);
-            dest.writeString(this.weikey);
-            dest.writeString(this.is_vip);
-            dest.writeString(this.order_time);
-            dest.writeInt(this.credits);
             dest.writeString(this.address);
+            dest.writeString(this.location);
             dest.writeString(this.count);
+            dest.writeString(this.weikey);
             dest.writeString(this.weipic);
             dest.writeString(this.weiname);
-            dest.writeString(this.attention);
-            dest.writeString(this.location);
             dest.writeString(this.privilege);
+            dest.writeString(this.ticket);
+            dest.writeInt(this.credits);
             dest.writeString(this.money);
-            dest.writeString(this.favorite);
+            dest.writeInt(this.active);
+            dest.writeInt(this.grade);
+            dest.writeString(this.attention);
+            dest.writeInt(this.care);
+            dest.writeString(this.favorite_id);
+            dest.writeInt(this.favorite);
             dest.writeString(this.token);
             dest.writeInt(this.status);
-            dest.writeString(this.favorite_id);
             dest.writeString(this.device);
-            dest.writeString(this.ticket);
-            dest.writeInt(this.grade);
         }
 
         public DataBean() {
@@ -370,25 +352,25 @@ public class GetUserInfoM {
             this.truename = in.readString();
             this.logintime = in.readString();
             this.face = in.readString();
-            this.weikey = in.readString();
-            this.is_vip = in.readString();
-            this.order_time = in.readString();
-            this.credits = in.readInt();
             this.address = in.readString();
+            this.location = in.readString();
             this.count = in.readString();
+            this.weikey = in.readString();
             this.weipic = in.readString();
             this.weiname = in.readString();
-            this.attention = in.readString();
-            this.location = in.readString();
             this.privilege = in.readString();
+            this.ticket = in.readString();
+            this.credits = in.readInt();
             this.money = in.readString();
-            this.favorite = in.readString();
+            this.active = in.readInt();
+            this.grade = in.readInt();
+            this.attention = in.readString();
+            this.care = in.readInt();
+            this.favorite_id = in.readString();
+            this.favorite = in.readInt();
             this.token = in.readString();
             this.status = in.readInt();
-            this.favorite_id = in.readString();
             this.device = in.readString();
-            this.ticket = in.readString();
-            this.grade = in.readInt();
         }
 
         public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {

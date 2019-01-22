@@ -73,7 +73,6 @@ import top.zibin.luban.OnCompressListener;
 
 public class CirclePublishActivity extends BaseActivity {
     private static final int REQUEST_FOR_VIDEO_FILE = 1000;
-
     @BindView(R.id.circlepublish_rv)
     RecyclerView circlepublish_rv;
     @BindView(R.id.publish_edit)
@@ -376,8 +375,6 @@ public class CirclePublishActivity extends BaseActivity {
 
             }
         }
-
-
     }
 
 

@@ -1,39 +1,32 @@
 package example.com.douying.activitys;
 
-import android.Manifest;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.jzvd.MyJZVideoPlayerStandard;
 import douying.example.com.mylibrary.view.utils.ImgLoadUtils;
 import example.com.douying.BaseActivity;
 import example.com.douying.R;
 import example.com.douying.activity.CameraActivity;
 import example.com.douying.activity.ModelActivity;
+import example.com.douying.activity.WaitActivity;
 import example.com.douying.adapter.ActorViewPagerAdapter;
 import example.com.douying.adapter.SwtichActorAdapter;
-import example.com.douying.http.MainHttp;
 import example.com.douying.model.PartBean;
 import example.com.douying.view.CustomDialog;
+import example.com.douying.view.PopModel;
 import qiu.niorgai.StatusBarCompat;
 
 public class SwtichActorActivityS2 extends BaseActivity {
@@ -48,7 +41,6 @@ public class SwtichActorActivityS2 extends BaseActivity {
     List<PartBean> ListPart;
     CustomDialog dialog;
     ImageView[] points;
-
     ActorViewPagerAdapter actorViewPagerAdapter;
 
     @Override
@@ -66,7 +58,7 @@ public class SwtichActorActivityS2 extends BaseActivity {
     public void test(View view) {
         switch (view.getId()) {
             case R.id.swtichactors_tocamera:
-                setdialog();
+                startActivity(new Intent(this, WaitActivity.class));
                 break;
         }
     }
@@ -80,7 +72,6 @@ public class SwtichActorActivityS2 extends BaseActivity {
         //设置初始的
         swtichActorAdapter = new SwtichActorAdapter(ListPart.get(0).getRole());
         actor_viewpager.setOnPageChangeListener(new GuidePageChangeListener());
-
         setPointGroup();
         swtichactor_rv.setAdapter(swtichActorAdapter);
         swtichactor_rv.setLayoutManager(new LinearLayoutManager(SwtichActorActivityS2.this, LinearLayoutManager.HORIZONTAL, false));
@@ -98,8 +89,13 @@ public class SwtichActorActivityS2 extends BaseActivity {
                         }
                         swtichActorAdapter.notifyDataSetChanged();
                         break;
-                }
+                    case R.id.item_swtichactor_model:
+                        PopModel popModel = new PopModel(SwtichActorActivityS2.this,(ImageView) view);
+                        popModel.showPopupWindow();
+                        break;
 
+
+                }
             }
         });
 
@@ -128,11 +124,14 @@ public class SwtichActorActivityS2 extends BaseActivity {
                                 }
                                 swtichActorAdapter.notifyDataSetChanged();
                                 break;
+                            case R.id.item_swtichactor_model:
+                                PopModel popModel = new PopModel(SwtichActorActivityS2.this,(ImageView) view);
+                                popModel.showPopupWindow();
+                                break;
                         }
 
                     }
                 });
-
             }
 
             @Override
@@ -140,7 +139,6 @@ public class SwtichActorActivityS2 extends BaseActivity {
 
             }
         });
-
     }
 
 
@@ -159,41 +157,6 @@ public class SwtichActorActivityS2 extends BaseActivity {
             points[i] = imageView;
             actor_pointgroup.addView(points[i]);
         }
-
-
-    }
-
-    private void setdialog() {
-        CustomDialog.Builder builder = new CustomDialog.Builder(this);
-        dialog =
-                builder.cancelTouchout(false)
-                        .view(R.layout.dialog_swtichface)
-                        .heightDimenRes(R.dimen.dialog_loginerror_height)
-                        .widthDimenRes(R.dimen.dialog_loginerror_width)
-                        .style(R.style.Dialog)
-                        .setButtonText(R.id.tocamera, "拍摄")
-                        .setButtonText(R.id.todatabasse, "调取")
-                        .addViewOnclick(R.id.close, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .addViewOnclick(R.id.tocamera, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                startActivity(new Intent(SwtichActorActivityS2.this, CameraActivity.class));
-                            }
-                        })
-                        .addViewOnclick(R.id.todatabasse, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                startActivity(new Intent(SwtichActorActivityS2.this, ModelActivity.class));
-                            }
-                        })
-                        .build();
-        dialog.show();
-
     }
 
 
@@ -213,10 +176,10 @@ public class SwtichActorActivityS2 extends BaseActivity {
 
         @Override
         public void onPageSelected(int index) {
-            ImgLoadUtils.setBg(SwtichActorActivityS2.this,R.mipmap.icon_point_white,points[index]);
+            ImgLoadUtils.setBg(SwtichActorActivityS2.this, R.mipmap.icon_point_white, points[index]);
             for (int i = 0; i < points.length; i++) {
                 if (index != i) {
-                    ImgLoadUtils.setBg(SwtichActorActivityS2.this,R.mipmap.icon_point_gray,points[i]);
+                    ImgLoadUtils.setBg(SwtichActorActivityS2.this, R.mipmap.icon_point_gray, points[i]);
                 }
             }
         }

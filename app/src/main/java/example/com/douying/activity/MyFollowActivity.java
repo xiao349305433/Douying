@@ -22,7 +22,7 @@ public class MyFollowActivity extends BaseActivity {
     @Override
     public void afterCreate(Bundle savedInstanceState) {
         StatusBarCompat.setStatusBarColor(this,getResources().getColor(R.color.gg));
-        setdata();
+     //   setdata();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MyFollowActivity extends BaseActivity {
         list.add("");
         list.add("");
         list.add("");
-        myFollowAdapter = new MyFollowAdapter(list);
+        myFollowAdapter = new MyFollowAdapter();
         myfollow_rv.setAdapter(myFollowAdapter);
         myfollow_rv.setLayoutManager(new LinearLayoutManager(this));
     }

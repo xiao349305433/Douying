@@ -41,14 +41,17 @@ public class MineActivity extends BaseActivity {
     TextView mine_name;
     @BindView(R.id.mine_img)
     ImageView mine_img;
+    @BindView(R.id.mine_follow)
+    TextView mine_follow;
+    @BindView(R.id.mine_fans)
+    TextView mine_fans;
     MineAdapter mineAdapter;
- //   View nodata;
+    //   View nodata;
 
     @Override
     public void afterCreate(Bundle savedInstanceState) {
         StatusBarCompat.translucentStatusBar(this);
         setdata();
-
     }
 
     @Override
@@ -62,60 +65,72 @@ public class MineActivity extends BaseActivity {
         setview();
     }
 
-    @OnClick({R.id.mine_setting,R.id.mine_img})
-    public void test(View view){
-        switch (view.getId()){
+    @OnClick({R.id.mine_setting, R.id.mine_img, R.id.mine_fans, R.id.mine_follow})
+    public void test(View view) {
+        switch (view.getId()) {
             case R.id.mine_setting:
-                startActivity(new Intent(this,SettingActivityS.class));
+                startActivity(new Intent(this, SettingActivityS.class));
                 break;
             case R.id.mine_img:
-                startActivity(new Intent(this,MineInfoActivity.class));
+                startActivity(new Intent(this, MineInfoActivity.class));
+                break;
+            case R.id.mine_follow:
+                Intent intent1 = new Intent(this, FansOrFollowActivity.class);
+                intent1.putExtra("type", "follow");
+                startActivity(intent1);
+                break;
+            case R.id.mine_fans:
+                Intent intent2 = new Intent(this, FansOrFollowActivity.class);
+                intent2.putExtra("type", "fans");
+                startActivity(intent2);
                 break;
         }
     }
 
-    private void setview(){
+
+    private void setview() {
         mine_name.setText(BaseData.Turename);
-      //  nodata = getLayoutInflater().inflate(R.layout.empty_view, (ViewGroup) mine_rv.getParent(), false);
+        mine_fans.setText("粉丝 " + BaseData.Favorite);
+        mine_follow.setText("关注 " + BaseData.Care);
         setNodata(mine_rv);
         mineAdapter = new MineAdapter();
         mineAdapter.setEmptyView(Nodata);
         mine_rv.setAdapter(mineAdapter);
         mine_rv.setLayoutManager(new LinearLayoutManager(MineActivity.this));
-        if(!BaseData.Pic.equals("")){
-            ImgLoadUtils.loadCirthumbnail(this,BaseData.Pic,mine_img);
+        if (!BaseData.Pic.equals("")) {
+            ImgLoadUtils.loadCirthumbnail(this, BaseData.Pic, mine_img);
         }
     }
 
     private void setdata() {
-        HttpParams httpParams=new HttpParams();
+        HttpParams httpParams = new HttpParams();
         httpParams.put("uid", BaseData.Uid);
-        mainHttp.HttpGet(this,"Index/getList",httpParams).execute(new JsonCallback<String>() {
+        mainHttp.HttpGet(this, "Index/getList", httpParams).execute(new JsonCallback<String>() {
             @Override
             public void onSuccess(Response<String> response) {
-
-                BaseM baseM=new Gson().fromJson(response.body(),BaseM.class);
-                switch (baseM.getCode()){
+                BaseM baseM = new Gson().fromJson(response.body(), BaseM.class);
+                switch (baseM.getCode()) {
                     case 200:
-                        GetListM getListM=new Gson().fromJson(response.body(),GetListM.class);
+                        GetListM getListM = new Gson().fromJson(response.body(), GetListM.class);
                         mineAdapter.addData(getListM.getData());
                         mineAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                                Intent intent=new Intent(MineActivity.this, LookVideoActivityS.class);
-                                intent.putExtra("data",getListM.getData().get(position));
+                                Intent intent = new Intent(MineActivity.this, LookVideoActivityS.class);
+                                intent.putExtra("data", getListM.getData().get(position));
                                 startActivity(intent);
                             }
                         });
-                        if(getListM.getData().size()==0){
+
+                        if (getListM.getData().size() == 0) {
                             mineAdapter.getEmptyView().setVisibility(View.VISIBLE);
-                        }else {
+                        } else {
                             mineAdapter.getEmptyView().setVisibility(View.GONE);
                         }
                         break;
-                     default:
-                         mineAdapter.getEmptyView().setVisibility(View.VISIBLE);
-                         break;
+                    default:
+                        mineAdapter.getEmptyView().setVisibility(View.VISIBLE);
+                        break;
                 }
             }
         });
