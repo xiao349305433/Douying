@@ -1,0 +1,1 @@
+include ':app', ':easy_indicator', ':adapterlibrary', ':jiaozivideoplayer', ':vpager', ':library', ':mylibrary', ':okgo', ':qccodelib', ':videoslimmer', ':PhotoPicker'
