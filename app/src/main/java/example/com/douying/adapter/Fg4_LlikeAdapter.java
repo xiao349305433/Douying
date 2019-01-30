@@ -23,8 +23,9 @@ public class Fg4_LlikeAdapter extends BaseQuickAdapter<GetNewM.DataBean.TrendBea
 
     @Override
     protected void convert(BaseViewHolder helper, GetNewM.DataBean.TrendBean item) {
-
-        helper.setText(R.id.item_fg4_like_content, Utils.Base64toStr(item.getContent()));
+        if(item.getContent()!=null){
+            helper.setText(R.id.item_fg4_like_content, Utils.Base64toStr(item.getContent()));
+        }
         helper.setText(R.id.item_fg4_like_name, item.getTruename());
         helper.setText(R.id.item_fg4_like_time, item.getTime());
         ImgLoadUtils.loadCirthumbnail(mContext, item.getPic(), helper.getView(R.id.item_fg4_like_avatar));

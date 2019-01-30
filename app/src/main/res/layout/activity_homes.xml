@@ -36,7 +36,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
       android:layout_marginRight="10dp"
-        android:src="@mipmap/shizi" />
+        android:src="@mipmap/shizi"
+        android:visibility="gone"
+        />
 
 </RelativeLayout>
 

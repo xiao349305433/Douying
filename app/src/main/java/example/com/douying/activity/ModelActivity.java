@@ -88,7 +88,7 @@ public class ModelActivity extends BaseActivity {
                         getModelM = new Gson().fromJson(response.body(), GetModelM.class);
                         List<SectionM> sectionMList = new ArrayList<>();
                         for (int i = 0; i < getModelM.getData().getList().size(); i++) {
-                            sectionMList.add(new SectionM(true, getModelM.getData().getList().get(i).getTitle(),getModelM.getData().getList().get(i).getPid()));
+                            sectionMList.add(new SectionM(true, getModelM.getData().getList().get(i).getTitle(),getModelM.getData().getList().get(i).getPid(),i));
                             for (int j = 0; j < getModelM.getData().getList().get(i).getList().size(); j++) {
                                 sectionMList.add(new SectionM(getModelM.getData().getList().get(i).getList().get(j)));
                             }
@@ -109,7 +109,7 @@ public class ModelActivity extends BaseActivity {
                         modelAdapter2.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                             @Override
                             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                                showdialog(position);
+                                showdialog(sectionMList.get(position).getArg());
                             }
                         });
                         model_rv.setAdapter(modelAdapter2);

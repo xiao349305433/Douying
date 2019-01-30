@@ -37,7 +37,7 @@
             android:id="@+id/item_fg4_like_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="挺不错的嘛"
+            android:text=""
             android:textColor="@color/white"
             android:layout_marginTop="5dp"
             />
